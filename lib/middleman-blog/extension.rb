@@ -28,6 +28,7 @@ module Middleman
     option :month_template, nil, 'Template path (no template extension) for monthly archive pages. Defaults to the :calendar_template.'
     option :day_template, nil, 'Template path (no template extension) for daily archive pages. Defaults to the :calendar_template.'
     option :tag_template, nil, 'Template path (no template extension) for tag archive pages.'
+    option :section_template, nil, 'Template path (no template extension) for section archive pages.'
     option :generate_year_pages, true, 'Whether to generate year pages.'
     option :generate_month_pages, true, 'Whether to generate month pages.'
     option :generate_day_pages, true, 'Whether to generate day pages.'
