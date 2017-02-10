@@ -29,7 +29,7 @@ module Middleman
       def manipulate_resource_list(resources)
         return resources unless @generate_tag_pages
 
-        resources + @blog_data.section.map do |tag, articles|
+        resources + @blog_data.tags.map do |tag, articles|
           tag_page_resource(tag, articles)
         end
       end
