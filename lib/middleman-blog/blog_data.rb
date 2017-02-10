@@ -63,7 +63,7 @@ module Middleman
         tags = {}
 
         articles.each do |article|
-          article.tag.each do |tag|
+          article.tags.each do |tag|
             tags[tag] ||= []
             tags[tag] << article
           end
