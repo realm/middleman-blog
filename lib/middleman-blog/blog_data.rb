@@ -63,13 +63,34 @@ module Middleman
         tags = {}
 
         articles.each do |article|
-          article.section.each do |tag|
+          article.tag.each do |tag|
             tags[tag] ||= []
             tags[tag] << article
           end
         end
 
         tags
+      end
+
+      # Returns a map from section name to an array
+      # of BlogArticles associated with that section.
+      # @return [Hash<String, Array<Middleman::Sitemap::Resource>>]
+      def sections
+        sections = {}
+
+        @_articles.each do |article|
+          article.section.each do |section|
+            sections[section.name] ||= []
+            sections[section.name] << article
+          end
+        end
+
+        # Sort each tag's list of articles
+        sections.each do |section, articles|
+          sections[section] = articles.sort_by(&:date).reverse
+        end
+
+        sections
       end
 
       def extract_source_params(path)
